@@ -9,12 +9,17 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     const username = req.body.username;
+    const role = req.body.role;
+    console.info("user is " + user);
 
-    const newUser = new User({username});
-
+    console.info("getting inside new users");
+    const role_array = [role];
+    const newUser = new User({username, role});
     newUser.save()
         .then(() => res.json('User added!'))
         .catch(err => res.status(400).json('Error: ' + err));
+
+
 });
 
 module.exports = router;

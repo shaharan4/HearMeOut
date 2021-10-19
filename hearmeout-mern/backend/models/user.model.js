@@ -10,6 +10,11 @@ const userSchema = new Schema({
         trim: true,
         minlength: 3
     },
+    role:{
+        type: Array,
+        required: true,
+        minlength: 1
+    }
 },  {
     timestamps: true,
 });
